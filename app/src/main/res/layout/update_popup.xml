@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Details"
+            android:background="#2196F3"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="5dp"/>
+
+        <EditText
+            android:id="@+id/editname"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:ems="10"
+            android:inputType="text"
+            android:background="@drawable/rounded"
+            android:layout_margin="10dp"
+            android:textSize="25dp"
+            android:paddingLeft="5dp"
+            android:hint="Name" />
+
+        <EditText
+            android:id="@+id/editprice"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:ems="10"
+            android:inputType="text"
+            android:background="@drawable/rounded"
+            android:layout_margin="10dp"
+            android:paddingLeft="5dp"
+            android:textSize="25dp"
+            android:hint="price" />
+
+        <EditText
+            android:id="@+id/editpurchase_date"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:ems="10"
+            android:inputType="text"
+            android:background="@drawable/rounded"
+            android:layout_margin="10dp"
+            android:paddingLeft="5dp"
+            android:textSize="25dp"
+            android:hint="Purchase date" />
+
+        <EditText
+            android:id="@+id/editimg_url"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@drawable/rounded"
+            android:layout_margin="10dp"
+            android:textSize="25dp"
+            android:paddingLeft="5dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="image url" />
+
+        <Button
+            android:id="@+id/update_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Details"
+            android:layout_gravity="center"
+            android:backgroundTint="#2196F3"
+            android:layout_margin="10dp"/>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

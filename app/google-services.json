@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "129927220195",
+    "firebase_url": "https://octdemo-d3305-default-rtdb.firebaseio.com",
+    "project_id": "octdemo-d3305",
+    "storage_bucket": "octdemo-d3305.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129927220195:android:d3e99e2c3f44fd3925aed6",
+        "android_client_info": {
+          "package_name": "com.example.pet_inventory"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeVIMF-FdBSdjGbHeMeCaB9u8ec3vPdVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
