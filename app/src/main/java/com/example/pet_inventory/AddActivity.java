@@ -60,6 +60,7 @@ public class AddActivity extends AppCompatActivity {
                     }
                 });
     }
+
     private void clearall(){
         nameet.setText(null);
         priceet.setText(null);

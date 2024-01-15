@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        
+
 
         FirebaseRecyclerOptions<MainModel> options =
                 new FirebaseRecyclerOptions.Builder<MainModel>()
@@ -89,4 +91,6 @@ public class MainActivity extends AppCompatActivity {
         mainAdapter.startListening();
         recyclerView.setAdapter(mainAdapter);
     }
+
+
 }

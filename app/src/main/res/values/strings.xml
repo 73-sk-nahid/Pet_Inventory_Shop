@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Pet_Inventory</string>
+    <string name="app_name">Pet Inventory</string>
+    <string name="opening_text">Let\'s Start</string>
+    <string name="login">Log In to Inventory System</string>
 </resources>
