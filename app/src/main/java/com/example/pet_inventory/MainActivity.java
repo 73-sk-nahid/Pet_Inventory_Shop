@@ -1,96 +1,42 @@
 package com.example.pet_inventory;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.SearchView;
 
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.FirebaseDatabase;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
-    MainAdapter mainAdapter;
-    FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //getSupportActionBar().show();
 
-        recyclerView = findViewById(R.id.recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PetInfoActivity()).commit();
 
-        
-
-
-        FirebaseRecyclerOptions<MainModel> options =
-                new FirebaseRecyclerOptions.Builder<MainModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("petinventory").child("pet_info"), MainModel.class)
-                        .build();
-
-
-        mainAdapter = new MainAdapter(options);
-        recyclerView.setAdapter(mainAdapter);
-
-        floatingActionButton = findViewById(R.id.floatingActionButton);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mainAdapter.startListening();
-    }
-
-    /*@Override
-    protected void onStop() {
-        super.onStop();
-        mainAdapter.stopListening();
-    }*/
-
-    public void add_new(View view) {
-        startActivity(new Intent(getApplicationContext(), AddActivity.class));
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.search,menu);
-        MenuItem item = menu.findItem(R.id.search_bar);
-        SearchView searchView = (SearchView)item.getActionView();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                txtSearch(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String query) {
-                txtSearch(query);
-                return false;
-            }
-        });
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    private void txtSearch(String str){
-        FirebaseRecyclerOptions<MainModel> options =
-                new FirebaseRecyclerOptions.Builder<MainModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("petinventory").child("pet_info").orderByChild("name").startAt(str).endAt(str+"~"), MainModel.class)
-                        .build();
-
-        mainAdapter = new MainAdapter(options);
-        mainAdapter.startListening();
-        recyclerView.setAdapter(mainAdapter);
-    }
-
+    private final BottomNavigationView.OnNavigationItemSelectedListener navListener = item -> {
+        Fragment selectedFragment = null;
+        int itemId = item.getItemId();
+        if (itemId == R.id.petinfo) {
+            selectedFragment = new PetInfoActivity();
+        } else if (itemId == R.id.cage) {
+            selectedFragment = new CageActivity();
+        } else if (itemId == R.id.schedule) {
+            selectedFragment = new SupplierActivity();
+        }else if (itemId == R.id.report) {
+            selectedFragment = new ReportActivity();
+        }
+        if (selectedFragment != null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+        }
+        return true;
+    };
 
 }

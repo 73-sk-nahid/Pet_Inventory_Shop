@@ -5,15 +5,17 @@ public class MainModel {
     String price;
     String purchase_date;
     String image_url;
+    String supplier_name;
 
     MainModel() {
     }
 
-    public MainModel(String name, String price, String purchase_date, String image_url) {
+    public MainModel(String name, String price, String purchase_date, String image_url, String supplier_name) {
         this.name = name;
         this.price = price;
         this.purchase_date = purchase_date;
         this.image_url = image_url;
+        this.supplier_name = supplier_name;
     }
 
     public String getName() {
@@ -46,5 +48,13 @@ public class MainModel {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public String getSupplier_name() {
+        return supplier_name;
+    }
+
+    public void setSupplier_name(String supplier_name) {
+        this.supplier_name = supplier_name;
     }
 }

@@ -56,6 +56,27 @@
             android:layout_marginTop="10dp"
             android:hint="Purchase Data(11 Nov, 2023)" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Supplier Name: "
+                android:textSize="20sp"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/spinnerdata"/>
+
+        </LinearLayout>
+
+
         <EditText
             android:id="@+id/imageurltxt"
             android:layout_width="match_parent"

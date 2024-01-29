@@ -3,17 +3,11 @@ package com.example.pet_inventory;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.Paint;
-import android.graphics.Shader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,49 +15,31 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.FirebaseDatabase;
-import com.orhanobut.dialogplus.DialogPlus;
-import com.orhanobut.dialogplus.ViewHolder;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+public class CageAdapter extends FirebaseRecyclerAdapter<CageModel,CageAdapter.myViewHolder>{
 
-public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.myViewHolder>{
-
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
-    public MainAdapter(@NonNull FirebaseRecyclerOptions<MainModel> options) {
+    public CageAdapter(@NonNull FirebaseRecyclerOptions<CageModel> options) {
         super(options);
     }
-//@SuppressLint("RecyclerView")
+    //@SuppressLint("RecyclerView")
     @Override
-    protected void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView")int position, @NonNull MainModel model) {
+    protected void onBindViewHolder(@NonNull myViewHolder holder, @SuppressLint("RecyclerView")int position, @NonNull CageModel model) {
+        /*holder.id.setText(model.getId());*/
         holder.name.setText(model.getName());
-        holder.price.setText(model.getPrice());
-        holder.date.setText(model.getPurchase_date());
-        holder.supplierName.setText(model.getSupplier_name());
+        //holder.s_no.setText(model.getSchedule_no());
 
-        Glide.with(holder.img.getContext())
+        /*Glide.with(holder.img.getContext())
                 .load(model.getImage_url())
                 .placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark)
                 .circleCrop()
                 .error(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark_normal)
-                .into(holder.img);
+                .into(holder.img);*/
 
-        holder.editBtn.setOnClickListener(new View.OnClickListener() {
+        /*holder.editbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.img.getContext())
@@ -79,9 +55,9 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
                 EditText image_url = view.findViewById(R.id.editimg_url);
                 Button updatebtn = view.findViewById(R.id.update_btn);
                 name.setText(model.getName());
-                price.setText(model.getPrice());
-                purchase_date.setText(model.getPurchase_date());
-                image_url.setText(model.getImage_url());
+                price.setText(model.getSchedule_no());
+                *//*purchase_date.setText(model.getPurchase_date());
+                image_url.setText(model.getImage_url());*//*
 
                 dialogPlus.show();
                 updatebtn.setOnClickListener(new View.OnClickListener() {
@@ -112,9 +88,9 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
                     }
                 });
             }
-        });
+        });*/
 
-        holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+        holder.deletebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(holder.name.getContext());
@@ -124,7 +100,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        FirebaseDatabase.getInstance().getReference().child("petinventory").child("pet_info")
+                        FirebaseDatabase.getInstance().getReference().child("petinventory").child("cage")
                                 .child(getRef(position).getKey())
                                 .removeValue();
                     }
@@ -143,14 +119,13 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
     @NonNull
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cage,parent,false);
         return new myViewHolder(view);
     }
 
     class myViewHolder extends RecyclerView.ViewHolder{
-        CircleImageView img;
-        TextView name, price, date, supplierName;
-        Button editBtn, deleteBtn;
+        TextView id, name, s_no;
+        Button editbtn, deletebtn;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -158,19 +133,16 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel,MainAdapter.m
             cardView.setCardBackgroundColor(Color.parseColor("#BFBCBC"));
             //cardView.setCardBackgroundColor(getRandomColorCode());
 
-            img = (CircleImageView) itemView.findViewById(R.id.image);
-            name = (TextView) itemView.findViewById(R.id.nameTextView);
-            price = (TextView) itemView.findViewById(R.id.priceTextView);
-            date = (TextView) itemView.findViewById(R.id.dateTextView);
-            editBtn = (Button) itemView.findViewById(R.id.edit);
-            deleteBtn = (Button) itemView.findViewById(R.id.delete);
-            supplierName = (TextView) itemView.findViewById(R.id.supplierName);
+            id = (TextView) itemView.findViewById(R.id.IDNo);
+            name = (TextView) itemView.findViewById(R.id.CageName);
+            s_no = (TextView) itemView.findViewById(R.id.ScheduleNumber);
+            editbtn = (Button) itemView.findViewById(R.id.edit);
+            deletebtn = (Button) itemView.findViewById(R.id.delete);
         }
 
         private int getRandomColorCode() {
             Random random = new Random();
             return Color.argb(255,random.nextInt(256), random.nextInt(256), random.nextInt(256));
         }
-
     }
 }

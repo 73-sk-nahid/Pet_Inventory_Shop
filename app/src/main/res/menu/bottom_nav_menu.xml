@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/miHome"
-        android:title="Home"
-        android:icon="@drawable/ic_home" />
+    <item
+        android:id="@+id/petinfo"
+        android:icon="@drawable/ic_home"
+        android:title=""
+        app:showAsAction="always"/>
 
-    <item android:id="@+id/miSearch"
-        android:title="Search"
-        android:icon="@drawable/search_icon" />
+    <item
+        android:id="@+id/cage"
+        android:icon="@drawable/cage"
+        android:title=""
+        app:showAsAction="always"/>
 
-    <item android:id="@+id/placeholder"
-        android:title="" />
-
-    <item android:id="@+id/miProfile"
-        android:title="Profile"
-        android:icon="@drawable/ic_person" />
-
-    <item android:id="@+id/miSettings"
-        android:title="Settings"
-        android:icon="@drawable/ic_setting" />
+    <item
+        android:id="@+id/schedule"
+        android:icon="@drawable/time"
+        android:title=""
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/report"
+        android:icon="@drawable/report"
+        android:title=""
+        app:showAsAction="always"/>
 </menu>

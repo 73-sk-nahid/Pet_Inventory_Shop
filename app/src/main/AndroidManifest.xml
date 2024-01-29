@@ -16,14 +16,17 @@
         android:theme="@style/Theme.Pet_Inventory"
         tools:targetApi="31">
         <activity
+            android:name=".AddCage"
+            android:exported="false" />
+        <activity
             android:name=".AddActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".LogIn"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Entry_Screen"
             android:exported="true">
