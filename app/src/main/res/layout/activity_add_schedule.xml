@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".addactivity.AddCage">
+    android:layout_margin="15dp"
+    tools:context=".addactivity.AddSchedule">
     <RadioGroup
-        android:id="@+id/radioGroupCageType"
+        android:id="@+id/radioGroupFeedingType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -14,87 +15,88 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Cage Type-"
+            android:text="Select Food Type-"
             android:textSize="17dp"
             android:textColor="@color/black"
             android:background="#93F8EC"/>
 
         <RadioButton
-            android:id="@+id/wireCage"
+            android:id="@+id/radioButtonDry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wire Cage"/>
+            android:text="Dry Food"/>
 
         <RadioButton
-            android:id="@+id/dogCage"
+            android:id="@+id/radioButtonWet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dog Cage"/>
+            android:text="Wet Food"/>
 
-        <RadioButton
-            android:id="@+id/ratCage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rat Cage"/>
-
-        <RadioButton
-            android:id="@+id/aquarium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Aquarium"/>
-
-
-        <RadioButton
-            android:id="@+id/birdCage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bird Cage"/>
         <!-- Add more radio buttons if needed -->
 
     </RadioGroup>
-
     <TextView
         android:id="@+id/tv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/radioGroupCageType"
-        android:text="Enter Cage Name-"
+        android:layout_below="@id/radioGroupFeedingType"
+        android:text="Enter Food Name-"
         android:textSize="17dp"
         android:textColor="@color/black"
         android:background="#93F8EC"/>
     <EditText
-        android:id="@+id/editCageName"
+        android:id="@+id/editTextFoodName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv1"
+        android:layout_below="@id/radioGroupFeedingType"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"/>
-
+    <!-- Feeding Interval Time Spinner -->
     <TextView
         android:id="@+id/tv2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editCageName"
-        android:text="Enter Cage Size-"
+        android:layout_below="@id/editTextFoodName"
+        android:text="Select Interval Time-"
         android:textSize="17dp"
         android:textColor="@color/black"
         android:background="#93F8EC"/>
-    <EditText
-        android:id="@+id/editCageSize"
+    <Spinner
+        android:id="@+id/spinnerIntervalTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv2"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:hint="16x12 inch"/>
+        android:entries="@array/feeding_intervals"/>
+
+    <!-- Food Weight/Piece EditText -->
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerIntervalTime"
+        android:text="Enter Food Weight/Piece-"
+        android:textSize="17dp"
+        android:textColor="@color/black"
+        android:background="#93F8EC"/>
+    <EditText
+        android:id="@+id/editTextFoodWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerIntervalTime"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"/>
+
+
     <Button
         android:id="@+id/bt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editCageSize"
+        android:layout_below="@id/editTextFoodWeight"
         android:layout_marginTop="16dp"
         android:text="Add"
-        android:onClick="add_new_cage"
+        android:onClick="add_new_schedule"
         android:layout_centerHorizontal="true"/>
 
     <Button

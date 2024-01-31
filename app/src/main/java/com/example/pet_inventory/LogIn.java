@@ -23,8 +23,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.google.firebase.auth.SignInMethodQueryResult;
 
 import java.util.Objects;
 
@@ -32,7 +30,7 @@ public class LogIn extends AppCompatActivity {
     CardView cardView;
     TextInputEditText email, password;
     TextInputLayout textInputLayout, textPasswordLayout;
-    TextView forgotpass;
+    TextView forgotPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +47,7 @@ public class LogIn extends AppCompatActivity {
         textInputLayout = findViewById(R.id.etUsernameLayout);
         textPasswordLayout = findViewById(R.id.etPasswordLayout);
 
-        forgotpass = findViewById(R.id.forgotPassID);
+        forgotPass = findViewById(R.id.forgotPassID);
 
 
         cardView.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +86,7 @@ public class LogIn extends AppCompatActivity {
         });
 
 
-        forgotpass.setOnClickListener(new View.OnClickListener() {
+        forgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(LogIn.this);

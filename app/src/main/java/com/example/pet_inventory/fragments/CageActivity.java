@@ -1,30 +1,30 @@
-package com.example.pet_inventory;
+package com.example.pet_inventory.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.pet_inventory.R;
+import com.example.pet_inventory.adapters.CageAdapter;
+import com.example.pet_inventory.addactivity.AddCage;
+import com.example.pet_inventory.models.CageModel;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
 
-import io.reactivex.rxjava3.annotations.NonNull;
-import io.reactivex.rxjava3.annotations.Nullable;
 import android.widget.Toast;
 import java.util.Objects;
 
-/**
- * A simple {@link Fragment} subclass.
- * create an instance of this fragment.
- */
 public class CageActivity extends Fragment {
+
     RecyclerView cageView;
     CageAdapter cageAdapter;
     FloatingActionButton cageAddButton;
@@ -43,8 +43,6 @@ public class CageActivity extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cage_activity, container, false);
-
-
     }
 
     @Override
@@ -60,18 +58,18 @@ public class CageActivity extends Fragment {
         cageAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(requireContext(), AddActivity.class));
+                startActivity(new Intent(requireContext(), AddCage.class));
                 Toast.makeText(getActivity(), "Add New Cage", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Initialize your RecyclerView adapter and set it to the RecyclerView
         FirebaseRecyclerOptions<CageModel> options = new FirebaseRecyclerOptions.Builder<CageModel>()
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("petinventory").child("cage"), CageModel.class)
                 .build();
 
         cageAdapter = new CageAdapter(options);
         cageView.setAdapter(cageAdapter);
+
     }
 
     @Override

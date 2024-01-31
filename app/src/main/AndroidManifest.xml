@@ -14,12 +14,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pet_Inventory"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AddCage"
+            android:name=".addactivity.AddSchedule"
             android:exported="false" />
         <activity
-            android:name=".AddActivity"
+            android:name=".addactivity.AddCage"
+            android:exported="false" />
+        <activity
+            android:name=".addactivity.AddActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

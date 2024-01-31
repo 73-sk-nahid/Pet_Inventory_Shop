@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SupplierActivity">
+    tools:context=".fragments.SupplierActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

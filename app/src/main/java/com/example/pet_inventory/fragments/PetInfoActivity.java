@@ -1,4 +1,4 @@
-package com.example.pet_inventory;
+package com.example.pet_inventory.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 
+import com.example.pet_inventory.R;
+import com.example.pet_inventory.adapters.MainAdapter;
+import com.example.pet_inventory.addactivity.AddActivity;
+import com.example.pet_inventory.models.MainModel;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;

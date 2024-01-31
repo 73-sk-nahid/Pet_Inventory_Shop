@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.pet_inventory.SupplierActivity;
 import com.example.pet_inventory.models.SupplierModel;
 
 import java.util.ArrayList;

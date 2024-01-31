@@ -1,4 +1,4 @@
-package com.example.pet_inventory;
+package com.example.pet_inventory.models;
 
 public class MainModel {
     String name;
@@ -6,16 +6,18 @@ public class MainModel {
     String purchase_date;
     String image_url;
     String supplier_name;
+    String schedule_name;
 
     MainModel() {
     }
 
-    public MainModel(String name, String price, String purchase_date, String image_url, String supplier_name) {
+    public MainModel(String name, String price, String purchase_date, String image_url, String supplier_name, String schedule_name) {
         this.name = name;
         this.price = price;
         this.purchase_date = purchase_date;
         this.image_url = image_url;
         this.supplier_name = supplier_name;
+        this.schedule_name = schedule_name;
     }
 
     public String getName() {
@@ -56,5 +58,13 @@ public class MainModel {
 
     public void setSupplier_name(String supplier_name) {
         this.supplier_name = supplier_name;
+    }
+
+    public String getSchedule_name() {
+        return schedule_name;
+    }
+
+    public void setSchedule_name(String schedule_name) {
+        this.schedule_name = schedule_name;
     }
 }

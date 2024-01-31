@@ -1,4 +1,4 @@
-package com.example.pet_inventory;
+package com.example.pet_inventory.fragments;
 
 import android.annotation.SuppressLint;
 import android.graphics.Typeface;
@@ -16,6 +16,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.pet_inventory.R;
 import com.example.pet_inventory.helper.DatabaseHelper;
 import com.example.pet_inventory.models.SupplierModel;
 

@@ -21,6 +21,11 @@
         android:title=""
         app:showAsAction="always"/>
     <item
+        android:id="@+id/supplier"
+        android:icon="@drawable/supplier"
+        android:title=""
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/report"
         android:icon="@drawable/report"
         android:title=""

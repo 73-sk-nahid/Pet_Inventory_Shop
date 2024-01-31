@@ -5,6 +5,11 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.pet_inventory.fragments.CageActivity;
+import com.example.pet_inventory.fragments.PetInfoActivity;
+import com.example.pet_inventory.fragments.ReportActivity;
+import com.example.pet_inventory.fragments.ScheduleActivity;
+import com.example.pet_inventory.fragments.SupplierActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         } else if (itemId == R.id.cage) {
             selectedFragment = new CageActivity();
         } else if (itemId == R.id.schedule) {
+            selectedFragment = new ScheduleActivity();
+        }else if (itemId == R.id.supplier) {
             selectedFragment = new SupplierActivity();
         }else if (itemId == R.id.report) {
             selectedFragment = new ReportActivity();

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/cardView"
-    android:layout_width="wrap_content"
+    android:id="@+id/CageView"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="6dp"
@@ -11,35 +11,20 @@
     android:layout_marginRight="5dp"
     app:cardUseCompatPadding="true">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/corner"
+        android:orientation="horizontal"
+        android:weightSum="100"
         android:padding="5dp">
         <LinearLayout
             android:id="@+id/main"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:layout_weight="75"
             android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cage ID:"
-                    android:textStyle="bold"
-                    android:textSize="25sp"
-                    />
-                <TextView
-                    android:id="@+id/IDNo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="no"
-                    android:textSize="25sp"/>
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,11 +33,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cage Name:"
+                    android:text="Cage Type:"
                     android:textStyle="bold"
                     android:textSize="25sp"/>
                 <TextView
-                    android:id="@+id/CageName"
+                    android:id="@+id/CageType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="name"
@@ -66,11 +51,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Schedule No: "
+                    android:text="Cage Name: "
                     android:textStyle="bold"
                     android:textSize="25sp"/>
                 <TextView
-                    android:id="@+id/ScheduleNumber"
+                    android:id="@+id/cageName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="25sp"
@@ -79,25 +64,25 @@
 
         </LinearLayout>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/main"
-            android:orientation="horizontal">
+            android:layout_weight="25"
+            android:gravity="end"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/edit"
-                android:layout_width="123dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:text="Edit" />
 
             <Button
                 android:id="@+id/delete"
-                android:layout_width="123dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
                 android:text="Delete" />
         </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -3,19 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.CageActivity">
+    tools:context=".fragments.ScheduleActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <!-- RecyclerView added to FrameLayout -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cageRecyclerview"
+        android:id="@+id/scheduleRecyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="?android:attr/actionBarSize" />
 
     <!-- FloatingActionButton -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/cageFloatingActionButton"
+        android:id="@+id/scheduleFloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -23,5 +21,6 @@
         android:layout_marginEnd="5dp"
         android:backgroundTint="#4CAF50"
         android:src="@drawable/add_new" />
+
 
 </FrameLayout>
