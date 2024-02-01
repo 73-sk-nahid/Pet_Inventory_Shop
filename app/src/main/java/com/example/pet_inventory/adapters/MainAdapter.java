@@ -63,6 +63,8 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
         holder.price.setText(model.getPrice());
         holder.date.setText(model.getPurchase_date());
         holder.supplierName.setText(model.getSupplier_name());
+        holder.cageName.setText(model.getCage_name());
+        holder.scheduleTime.setText(model.getSchedule_name());
 
         Glide.with(holder.img.getContext())
                 .load(model.getImage_url())
@@ -239,7 +241,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
 
     class myViewHolder extends RecyclerView.ViewHolder {
         CircleImageView img;
-        TextView name, price, date, supplierName;
+        TextView name, price, date, supplierName, cageName, scheduleTime;
         ImageView editBtn, deleteBtn, sellBtn;
 
         public myViewHolder(@NonNull View itemView) {
@@ -252,6 +254,8 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
             name = (TextView) itemView.findViewById(R.id.nameTextView);
             price = (TextView) itemView.findViewById(R.id.priceTextView);
             date = (TextView) itemView.findViewById(R.id.dateTextView);
+            cageName = (TextView) itemView.findViewById(R.id.cageName);
+            scheduleTime = (TextView) itemView.findViewById(R.id.schedule);
             editBtn = (ImageView) itemView.findViewById(R.id.edit);
             deleteBtn = (ImageView) itemView.findViewById(R.id.delete);
             sellBtn = (ImageView) itemView.findViewById(R.id.sell);
@@ -272,7 +276,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
         }
         private int orderCounter = 1; // Initialize the counter with the starting value
 
-        private String generateOrderNumber() {
+       /* private String generateOrderNumber() {
             // Increment the counter for each new order
             orderCounter++;
 
@@ -282,7 +286,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
             }
 
             return String.valueOf(orderCounter);
-        }
+        }*/
 
 
     }

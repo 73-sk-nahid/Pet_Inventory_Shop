@@ -7,17 +7,20 @@ public class MainModel {
     String image_url;
     String supplier_name;
     String schedule_name;
+    String cage_name;
+
 
     MainModel() {
     }
 
-    public MainModel(String name, String price, String purchase_date, String image_url, String supplier_name, String schedule_name) {
+    public MainModel(String name, String price, String purchase_date, String image_url, String supplier_name, String schedule_name, String cage_name) {
         this.name = name;
         this.price = price;
         this.purchase_date = purchase_date;
         this.image_url = image_url;
         this.supplier_name = supplier_name;
         this.schedule_name = schedule_name;
+        this.cage_name = cage_name;
     }
 
     public String getName() {
@@ -66,5 +69,9 @@ public class MainModel {
 
     public void setSchedule_name(String schedule_name) {
         this.schedule_name = schedule_name;
+    }
+
+    public String getCage_name() {
+        return cage_name;
     }
 }

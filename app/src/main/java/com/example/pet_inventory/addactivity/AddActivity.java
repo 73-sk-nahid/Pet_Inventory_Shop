@@ -40,7 +40,7 @@ public class AddActivity extends AppCompatActivity {
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference mDataRef = mDatabase.getReference().child("petinventory").child("schedule_time");
     ArrayList list;
-    Spinner scheduleSpin;
+    Spinner scheduleSpin, cageSpin;
 
 
     @Override
@@ -57,6 +57,7 @@ public class AddActivity extends AppCompatActivity {
         urlEt = findViewById(R.id.imageurltxt);
         spin = findViewById(R.id.spinnerdata);
         scheduleSpin = findViewById(R.id.scheduleSpinner);
+        cageSpin = findViewById(R.id.spinnerCage);
         list = new ArrayList<>();
 
         DatabaseHelper dbHelper = new DatabaseHelper(this);
@@ -64,6 +65,7 @@ public class AddActivity extends AppCompatActivity {
         ArrayAdapter<String> adp = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, supplierNames);
         spin.setAdapter(adp);
 
+        //get schedule time
         FirebaseDatabase.getInstance().getReference().child("petinventory").child("schedule_time").orderByChild("name")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -83,6 +85,35 @@ public class AddActivity extends AppCompatActivity {
 
                         // Set the ArrayAdapter to the Spinner
                         scheduleSpin.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        // Handle errors here
+                    }
+                });
+
+
+        //get cage name
+        FirebaseDatabase.getInstance().getReference().child("petinventory").child("cage").orderByChild("name")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        List<String> names = new ArrayList<>();
+
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            ScheduleModel scheduleModel = snapshot.getValue(ScheduleModel.class);
+                            if (scheduleModel != null) {
+                                names.add(scheduleModel.getName());
+                            }
+                        }
+
+                        // Create an ArrayAdapter using the fetched data
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(AddActivity.this, android.R.layout.simple_spinner_item, names);
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                        // Set the ArrayAdapter to the Spinner
+                        cageSpin.setAdapter(adapter);
                     }
 
                     @Override
@@ -146,6 +177,7 @@ public class AddActivity extends AppCompatActivity {
         map.put("price", priceEt.getText().toString());
         map.put("purchase_date", pDateEt.getText().toString());
         map.put("image_url", urlEt.getText().toString());
+        map.put("cage_name", cageSpin.getSelectedItem().toString());
         map.put("supplier_name", spin.getSelectedItem().toString());
         map.put("schedule_name", scheduleSpin.getSelectedItem().toString());
 
