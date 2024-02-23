@@ -16,15 +16,23 @@
         android:layout_height="wrap_content"
         android:background="@drawable/corner"
         android:orientation="horizontal"
-        android:weightSum="100"
-        android:padding="5dp">
+        android:weightSum="100">
         <LinearLayout
             android:id="@+id/main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_weight="75"
+            android:layout_weight="90"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/cageName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:text="no"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,17 +41,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cage Type:"
+                    android:text="Cage Type: "
                     android:textStyle="bold"
-                    android:textSize="25sp"/>
+                    android:textSize="20sp"/>
                 <TextView
                     android:id="@+id/CageType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="name"
-                    android:textSize="25sp"/>
+                    android:textSize="20sp"/>
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,37 +58,48 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cage Name: "
+                    android:text="Cage Size: "
                     android:textStyle="bold"
-                    android:textSize="25sp"/>
+                    android:textSize="20sp"/>
                 <TextView
-                    android:id="@+id/cageName"
+                    android:id="@+id/cageSize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:text="no"/>
             </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Schedule Name: "
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:id="@+id/scheduleName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="no"/>
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/main"
-            android:layout_weight="25"
+            android:layout_weight="10"
             android:gravity="end"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/edit"
+            <ImageView
+                android:id="@+id/deleteCage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit" />
-
-            <Button
-                android:id="@+id/delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Delete" />
+                android:src="@drawable/delete_icon"
+                android:layout_marginTop="10dp" />
         </LinearLayout>
     </LinearLayout>
 

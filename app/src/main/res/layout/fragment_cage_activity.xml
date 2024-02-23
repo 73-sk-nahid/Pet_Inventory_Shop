@@ -18,10 +18,11 @@
         android:id="@+id/cageFloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="bottom|start"
         android:layout_marginBottom="60dp"
         android:layout_marginEnd="5dp"
         android:backgroundTint="#4CAF50"
+        android:layout_marginStart="5dp"
         android:src="@drawable/add_new" />
 
 </FrameLayout>

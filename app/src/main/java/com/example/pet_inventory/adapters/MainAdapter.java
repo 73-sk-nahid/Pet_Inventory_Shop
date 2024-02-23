@@ -276,18 +276,5 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
         }
         private int orderCounter = 1; // Initialize the counter with the starting value
 
-       /* private String generateOrderNumber() {
-            // Increment the counter for each new order
-            orderCounter++;
-
-            // Check if the counter exceeds a certain maximum value (e.g., 5000)
-            if (orderCounter > 5000) {
-                orderCounter = 1; // Reset the counter to the starting value if it exceeds the maximum
-            }
-
-            return String.valueOf(orderCounter);
-        }*/
-
-
     }
 }

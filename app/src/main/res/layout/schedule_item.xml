@@ -20,7 +20,7 @@
         <LinearLayout
             android:id="@+id/linear_layout"
             android:layout_width="0dp"
-            android:layout_weight="75"
+            android:layout_weight="90"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
@@ -111,22 +111,17 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="25"
+            android:layout_weight="10"
             android:layout_height="wrap_content"
             android:gravity="end"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/edit"
+            <ImageView
+                android:id="@+id/deleteSchedule"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit" />
-
-            <Button
-                android:id="@+id/delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Delete" />
+                android:src="@drawable/delete_icon"
+                android:layout_marginTop="10dp" />
         </LinearLayout>
     </LinearLayout>
 

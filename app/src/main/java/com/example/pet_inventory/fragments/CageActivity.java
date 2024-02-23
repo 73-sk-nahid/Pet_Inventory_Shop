@@ -72,6 +72,7 @@ public class CageActivity extends Fragment {
 
     }
 
+
     @Override
     public void onStart() {
         super.onStart();

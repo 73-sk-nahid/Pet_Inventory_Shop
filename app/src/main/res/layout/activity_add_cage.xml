@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     tools:context=".addactivity.AddCage">
     <RadioGroup
         android:id="@+id/radioGroupCageType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="40dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,11 +88,25 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:hint="16x12 inch"/>
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editCageSize"
+        android:text="Select Schedule-"
+        android:textSize="17dp"
+        android:textColor="@color/black"
+        android:background="#93F8EC"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/tv3"
+        android:id="@+id/spinnerdata"/>
     <Button
         android:id="@+id/bt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editCageSize"
+        android:layout_below="@id/spinnerdata"
         android:layout_marginTop="16dp"
         android:text="Add"
         android:onClick="add_new_cage"
