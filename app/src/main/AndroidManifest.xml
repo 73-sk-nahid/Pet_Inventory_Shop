@@ -17,6 +17,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".DetailsActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Pet Details"
+            android:exported="false" />
+        <activity
             android:name=".addactivity.AddSchedule"
             android:exported="false" />
         <activity
@@ -33,8 +38,8 @@
             android:exported="false" />
         <activity
             android:name=".Entry_Screen"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -5,13 +5,16 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +33,8 @@ public class LogIn extends AppCompatActivity {
     CardView cardView;
     TextInputEditText email, password;
     TextInputLayout textInputLayout, textPasswordLayout;
-    TextView forgotPass;
+    TextView forgotPass, login;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,8 @@ public class LogIn extends AppCompatActivity {
         cardView = findViewById(R.id.login_card);
         password = findViewById(R.id.etPassword);
         email = findViewById(R.id.etEmail);
+        login = findViewById(R.id.btn_login);
+        progressBar = findViewById(R.id.progressBar);
 
         textInputLayout = findViewById(R.id.etUsernameLayout);
         textPasswordLayout = findViewById(R.id.etPasswordLayout);
@@ -59,10 +65,16 @@ public class LogIn extends AppCompatActivity {
 
                 if (!Email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
                     if (!Password.isEmpty()) {
+                        progressBar.setVisibility(View.VISIBLE);
+                        login.setText("Authorizing..");
+                        cardView.setCardBackgroundColor(Color.parseColor("#9EA13C"));
                         FirebaseAuth.getInstance().signInWithEmailAndPassword(Email, Password)
                                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
+                                        progressBar.setVisibility(View.INVISIBLE);
+                                        login.setText("Authorized");
+                                        cardView.setCardBackgroundColor(Color.parseColor("#22bb33"));
                                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                         startActivity(intent);
                                         finish();
@@ -71,7 +83,10 @@ public class LogIn extends AppCompatActivity {
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(LogIn.this, "Log In Failed", Toast.LENGTH_SHORT).show();
+                                        progressBar.setVisibility(View.INVISIBLE);
+                                        login.setText("Unauthorized");
+                                        cardView.setCardBackgroundColor(Color.parseColor("#bb2124"));
+                                        //Toast.makeText(LogIn.this, "Log In Failed", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     } else {

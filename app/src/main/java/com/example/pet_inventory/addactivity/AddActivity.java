@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -49,7 +50,7 @@ import java.util.Objects;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AddActivity extends AppCompatActivity {
-    EditText nameEt, priceEt, pDateEt, urlEt;
+    EditText nameEt, priceEt, pDateEt, idEt;
     Spinner spin;
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference mDataRef = mDatabase.getReference().child("petinventory").child("schedule_time");
@@ -71,7 +72,7 @@ public class AddActivity extends AppCompatActivity {
         priceEt = findViewById(R.id.pricetxt);
         pDateEt = findViewById(R.id.purchasedatetxt);
         profile_image = findViewById(R.id.profile_image);
-        //urlEt = findViewById(R.id.imageurltxt);
+        idEt = findViewById(R.id.petId);
         spin = findViewById(R.id.spinnerdata);
         scheduleSpin = findViewById(R.id.scheduleSpinner);
         cageSpin = findViewById(R.id.spinnerCage);
@@ -181,7 +182,14 @@ public class AddActivity extends AppCompatActivity {
     }
 
     private void insertData() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Uploading data...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+
         StorageReference reference = FirebaseStorage.getInstance().getReference().child("img_url");
+
         reference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
@@ -190,6 +198,7 @@ public class AddActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
                             Map<String, String> map = new HashMap<>();
+                            map.put("id", idEt.getText().toString());
                             map.put("name", nameEt.getText().toString());
                             map.put("price", priceEt.getText().toString());
                             map.put("purchase_date", pDateEt.getText().toString());
@@ -198,9 +207,11 @@ public class AddActivity extends AppCompatActivity {
                             map.put("supplier_name", spin.getSelectedItem().toString());
                             map.put("schedule_name", scheduleSpin.getSelectedItem().toString());
 
-                            FirebaseDatabase.getInstance().getReference().child("petinventory").child("pet_info").push().setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            FirebaseDatabase.getInstance().getReference().child("petinventory").child("pet_info").push()
+                                    .setValue(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
+                                    progressDialog.dismiss();
                                     Toast.makeText(AddActivity.this, "Data added successful", Toast.LENGTH_SHORT).show();
                                     clearAll();
                                 }

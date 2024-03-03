@@ -43,13 +43,15 @@
                     android:layout_height="wrap_content"
                     android:text="Cage Type: "
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:textSize="20sp"/>
                 <TextView
                     android:id="@+id/CageType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="name"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -60,12 +62,14 @@
                     android:layout_height="wrap_content"
                     android:text="Cage Size: "
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:textSize="20sp"/>
                 <TextView
                     android:id="@+id/cageSize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
+                    android:textColor="@color/black"
                     android:text="no"/>
             </LinearLayout>
             <LinearLayout
@@ -77,12 +81,14 @@
                     android:layout_height="wrap_content"
                     android:text="Schedule Name: "
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:textSize="20sp"/>
                 <TextView
                     android:id="@+id/scheduleName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
+                    android:textColor="@color/black"
                     android:text="no"/>
             </LinearLayout>
         </LinearLayout>

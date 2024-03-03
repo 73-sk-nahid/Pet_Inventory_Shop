@@ -1,6 +1,7 @@
 package com.example.pet_inventory.models;
 
 public class MainModel {
+    String id;
     String name;
     String price;
     String purchase_date;
@@ -13,13 +14,26 @@ public class MainModel {
     MainModel() {
     }
 
-    public MainModel(String name, String price, String purchase_date, String image_url, String supplier_name, String schedule_name, String cage_name) {
+    public MainModel(String id, String name, String price, String purchase_date, String image_url, String supplier_name, String schedule_name, String cage_name) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.purchase_date = purchase_date;
         this.image_url = image_url;
         this.supplier_name = supplier_name;
         this.schedule_name = schedule_name;
+        this.cage_name = cage_name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setCage_name(String cage_name) {
         this.cage_name = cage_name;
     }
 

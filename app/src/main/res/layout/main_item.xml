@@ -101,7 +101,7 @@
                     android:textSize="17sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -138,7 +138,7 @@
                     android:text="Twice a day"
                     android:textSize="17sp"
                     android:textColor="@color/black"/>
-            </LinearLayout>
+            </LinearLayout>-->
 
         </LinearLayout>
 
@@ -153,20 +153,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/edit_icon"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="5dp" />
 
             <ImageView
                 android:id="@+id/delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/delete_icon"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="5dp" />
             <ImageView
                 android:id="@+id/sell"
                 android:layout_width="30dp"
                 android:layout_height="35dp"
                 android:src="@drawable/sell_icon"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="5dp" />
         </LinearLayout>
     </LinearLayout>
 
